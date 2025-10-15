@@ -10,8 +10,7 @@
     "eject": "react-scripts eject",
     "admin": "node admin-server.js",
     "admin:dev": "npm start",
-    "heroku-postbuild": "npm run build",
-    "postinstall": "npm install --legacy-peer-deps"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@reown/appkit": "^1.8.9",
