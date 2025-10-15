@@ -23,7 +23,7 @@ services:
     name: defi-exchange-frontend
     env: docker
     plan: free
-    dockerfilePath: ./frontend-Dockerfile
+    dockerfilePath: ./simple-frontend-Dockerfile
     envVars:
       - key: NODE_ENV
         value: production

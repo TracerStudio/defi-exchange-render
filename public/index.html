@@ -3,27 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AetherSwap</title>
+    <title>AetherSwap - DeFi Exchange</title>
     <meta name="description" content="Decentralized Exchange Platform">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-                sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        #root {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00d4ff, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .card h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+        
+        .card p {
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .status {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .status h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .api-info {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .api-info h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .api-endpoint {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">AetherSwap</h1>
+            <p class="subtitle">Decentralized Exchange Platform</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2>🚀 DeFi Exchange</h2>
+                <p>Торгуйте криптовалютами в децентралізованому середовищі з низькими комісіями та високою швидкістю.</p>
+                <p>Підтримуємо основні токени та забезпечуємо безпечні транзакції.</p>
+                <button class="btn" onclick="connectWallet()">Підключити гаманець</button>
+            </div>
+            
+            <div class="card">
+                <h2>💎 Особливості</h2>
+                <p>• Швидкі транзакції</p>
+                <p>• Низькі комісії</p>
+                <p>• Безпечність</p>
+                <p>• Підтримка багатьох токенів</p>
+                <p>• Telegram бот для виведення</p>
+            </div>
+        </div>
+        
+        <div class="status">
+            <h3>✅ Сервер працює</h3>
+            <p>API сервер успішно розгорнуто та готовий до роботи</p>
+        </div>
+        
+        <div class="api-info">
+            <h3>🔗 API Endpoints</h3>
+            <div class="api-endpoint">GET /health - Перевірка стану сервера</div>
+            <div class="api-endpoint">GET /api/balances/:address - Отримання балансів</div>
+            <div class="api-endpoint">POST /api/sync-balances - Синхронізація балансів</div>
+            <div class="api-endpoint">POST /withdrawal-request - Заявка на вивід</div>
+        </div>
+    </div>
+    
+    <script>
+        function connectWallet() {
+            alert('Функція підключення гаманця буде доступна після повного розгортання React додатку!');
+        }
+        
+        // Перевіряємо стан API
+        fetch('https://defi-exchange-render.onrender.com/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('API Status:', data);
+                if (data.status === 'OK') {
+                    document.querySelector('.status h3').textContent = '✅ API працює';
+                    document.querySelector('.status p').textContent = 'Сервер відповідає на запити';
+                }
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                document.querySelector('.status h3').textContent = '⚠️ API недоступний';
+                document.querySelector('.status p').textContent = 'Перевірте підключення до сервера';
+            });
+    </script>
 </body>
 </html>
