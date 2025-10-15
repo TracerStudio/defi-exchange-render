@@ -7,8 +7,8 @@ WORKDIR /app
 # Копіюємо package.json
 COPY package.json ./
 
-# Встановлюємо залежності з legacy-peer-deps для вирішення конфліктів
-RUN npm install --legacy-peer-deps
+# Очищаємо кеш npm та встановлюємо залежності
+RUN npm cache clean --force && npm install --legacy-peer-deps
 
 # Копіюємо весь проект
 COPY . .
