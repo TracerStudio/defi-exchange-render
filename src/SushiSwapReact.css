@@ -1,0 +1,3615 @@
+/* SushiSwap React Clone - EXACT Design Replication */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive Design - Mobile First Approach */
+:root {
+  --mobile-padding: 1rem;
+  --tablet-padding: 1.5rem;
+  --desktop-padding: 2rem;
+  --mobile-font-size: 0.875rem;
+  --tablet-font-size: 1rem;
+  --desktop-font-size: 1rem;
+  --mobile-header-height: 60px;
+  --mobile-button-height: 48px;
+  --mobile-input-height: 48px;
+  --mobile-border-radius: 12px;
+  --mobile-touch-target: 44px;
+}
+
+/* Disable all animations for better performance */
+*, *::before, *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  transform: none !important;
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+
+.token-modal-overlay,
+.token-modal,
+.token-option {
+  will-change: opacity;
+}
+
+/* Відключаємо анімації для користувачів з налаштуванням prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Font loading optimization */
+@font-face {
+  font-family: 'Orbitron';
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background: #101010;
+  min-height: 100vh;
+  color: #ffffff;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sushi-app {
+  min-height: 100vh;
+  background: transparent; /* Прозорий фон щоб показати зображення */
+}
+
+/* Header - Exact Match */
+.header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+/* Mobile Header */
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Tablet Header */
+@media (min-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Desktop Header */
+@media (min-width: 1024px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+}
+
+.logo-section {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  order: 1 !important;
+  flex-shrink: 0;
+}
+
+.ethereum-price {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  color: #627eea;
+  font-weight: 600;
+  font-size: 0.9rem;
+  order: 1 !important;
+}
+
+.ethereum-price .eth-icon {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #627eea, #4f46e5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.logo {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.025em;
+}
+
+/* Mobile Logo - УЛЬТРА ОПТИМІЗАЦІЯ */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem; /* ЩЕ МЕНШИЙ ШРИФТ */
+    font-weight: 600; /* ЩЕ МЕНША ЖИРНІСТЬ */
+    letter-spacing: -0.02em; /* КОМПАКТНІШИЙ */
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Tablet Logo */
+@media (min-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop Logo */
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+.logo-first {
+  color: #f8fafc;
+}
+
+.logo-second {
+  color: #60a5fa;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: brightness(1.1);
+  display: block;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.chevron {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+
+.wallet-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Refresh Button Styles */
+.refresh-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 0.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 
+    0 2px 6px rgba(255, 255, 255, 0.1),
+    0 1px 2px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.refresh-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 8px rgba(255, 255, 255, 0.15),
+    0 1px 3px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.refresh-button:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-button:disabled:hover {
+  transform: none;
+}
+
+/* Connect Wallet Button - ГАРМОНІЙНИЙ ДЛЯ ПК */
+.connect-wallet {
+  font-family: 'Orbitron', monospace;
+  background: #3b82f6 !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px; /* МЕНШЕ заокруглення для гармонії */
+  padding: 0.625rem 1.25rem; /* МЕНШЕ padding для гармонії */
+  font-weight: 600;
+  font-size: 0.8rem; /* МЕНШИЙ шрифт для гармонії */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex !important; /* Flexbox для правильного вирівнювання */
+  align-items: center !important; /* Вертикальне центрування */
+  justify-content: center !important; /* Горизонтальне центрування */
+  text-align: center !important; /* Центрування тексту */
+  line-height: 1 !important; /* Фіксована висота рядка */
+  min-width: 120px; /* МЕНШЕ для гармонії з мережею */
+  text-align: center;
+  box-shadow: 
+    0 2px 8px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* Мобільні оптимізації */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 36px; /* МЕНША висота для гармонії */
+  position: relative;
+  overflow: hidden;
+  
+  /* Покращений відгук на дотик */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ПК СТИЛІ ДЛЯ ГАРМОНІЇ З МЕРЕЖЕЮ */
+@media (min-width: 769px) {
+  .connect-wallet {
+    /* ГАРМОНІЙНІ РОЗМІРИ ДЛЯ ПК */
+    min-width: 100px !important; /* ГАРМОНІЙНО з мережею */
+    padding: 0.5rem 1rem !important; /* ГАРМОНІЙНО з мережею */
+    font-size: 0.75rem !important; /* ГАРМОНІЙНО з мережею */
+    min-height: 32px !important; /* ГАРМОНІЙНО з мережею */
+    border-radius: 6px !important; /* ГАРМОНІЙНО з мережею */
+    display: flex !important; /* Flexbox для правильного вирівнювання */
+    align-items: center !important; /* Вертикальне центрування */
+    justify-content: center !important; /* Горизонтальне центрування */
+    text-align: center !important; /* Центрування тексту */
+    line-height: 1 !important; /* Фіксована висота рядка */
+    
+    /* ГАРМОНІЙНІ ТІНІ */
+    box-shadow: 
+      0 1px 6px rgba(59, 130, 246, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .connect-wallet:hover {
+    /* ГАРМОНІЙНИЙ HOVER */
+    background: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 
+      0 3px 10px rgba(59, 130, 246, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  
+  .connect-wallet:active {
+    /* ГАРМОНІЙНИЙ ACTIVE */
+    transform: scale(0.98) translateY(1px);
+    background: #1d4ed8 !important;
+    box-shadow: 
+      0 1px 4px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Hover effects */
+
+.connect-wallet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+  .connect-wallet:hover {
+    background: #2563eb;
+    box-shadow: 
+      0 6px 16px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+.connect-wallet:hover::before {
+  opacity: 1;
+}
+
+.connect-wallet:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 6px rgba(59, 130, 246, 0.3),
+    0 1px 3px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.network-badge {
+  font-family: 'Orbitron', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.network-icon {
+  width: 16px;
+  height: 16px;
+  background: #627eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.network-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.network-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* Дублікат видалено */
+
+.connect-wallet:hover {
+  background: linear-gradient(145deg, #7bb3ff, #4f9eff);
+  box-shadow: 
+    0 4px 10px rgba(59, 130, 246, 0.4),
+    0 2px 4px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Bottom Right Network Status */
+.network-status {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.network-status.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+/* Bottom Left Statistics */
+.bottom-stats {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bottom-stats.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem; /* Трохи менший gap */
+  padding: 0.5rem 0.75rem; /* Трохи менший padding */
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* Трохи менший радіус */
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  min-width: 100px; /* Трохи менша ширина */
+  min-height: 2.5rem; /* Трохи менша висота */
+}
+
+.stat-item:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.stat-icon {
+  width: 14px; /* Трохи менший розмір */
+  height: 14px; /* Трохи менший розмір */
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.875rem; /* Трохи менший розмір */
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.625rem; /* Трохи менший розмір */
+  color: #94a3b8;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.3px; /* Трохи менше між літерами */
+}
+
+/* Network Status Items */
+.network-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem; /* Як у stat-item */
+  padding: 0.5rem 0.75rem; /* Як у stat-item */
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* Як у stat-item */
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  min-width: 100px; /* Як у stat-item */
+  min-height: 2.5rem; /* Як у stat-item */
+}
+
+.network-item:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  transform: translateX(-5px);
+}
+
+.network-icon {
+  width: 14px; /* Як у stat-icon */
+  height: 14px; /* Як у stat-icon */
+  color: #ffffff;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
+.network-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.network-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.875rem; /* Як у stat-value */
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1; /* Як у stat-value */
+}
+
+.network-label {
+  font-size: 0.625rem; /* Як у stat-label */
+  color: #94a3b8;
+  font-weight: 400;
+  line-height: 1.2; /* Як у stat-label */
+  text-transform: uppercase;
+  letter-spacing: 0.3px; /* Як у stat-label */
+}
+
+/* Responsive Network Status */
+@media (max-width: 1024px) {
+  .network-status {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    gap: 0.5rem;
+  }
+  
+  .network-item {
+    padding: 0.2rem 0.3rem;
+    min-width: 60px;
+  }
+  
+  .network-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .network-value {
+    font-size: 0.5rem;
+  }
+  
+  .network-label {
+    font-size: 0.4rem;
+  }
+}
+
+/* Responsive Bottom Stats */
+@media (max-width: 1024px) {
+  .bottom-stats {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    padding: 0.25rem 0.375rem;
+    min-width: 80px;
+  }
+  
+  .stat-icon {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .stat-value {
+    font-size: 0.625rem;
+  }
+  
+  .stat-label {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .network-status {
+    bottom: 1rem;
+    right: 1rem;
+    gap: 0.375rem;
+  }
+  
+  .network-item {
+    padding: 0.15rem 0.25rem;
+    min-width: 50px;
+  }
+  
+  .network-icon {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .network-value {
+    font-size: 0.5rem;
+  }
+  
+  .network-label {
+    font-size: 0.4rem;
+  }
+  
+  .bottom-stats {
+    bottom: 1rem;
+    left: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .stat-item {
+    padding: 0.25rem 0.375rem;
+    min-width: 70px;
+  }
+  
+  .stat-icon {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .stat-value {
+    font-size: 0.625rem;
+  }
+  
+  .stat-label {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .network-status {
+    display: none;
+  }
+  
+  .bottom-stats {
+    display: none;
+  }
+}
+
+/* Main Content - Exact Match */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* По центру вертикально */
+  min-height: 100vh; /* Повна висота екрану */
+  padding: var(--mobile-padding);
+  padding-top: 5rem; /* Відступ для fixed header */
+}
+
+/* Tablet Main Content */
+@media (min-width: 768px) {
+  .main-content {
+    padding: var(--tablet-padding);
+    padding-top: 6rem;
+  }
+}
+
+/* Desktop Main Content */
+@media (min-width: 1024px) {
+  .main-content {
+    padding: var(--desktop-padding);
+    padding-top: 6rem;
+  }
+}
+
+.swap-container {
+  background: rgba(20, 20, 20, 1);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 15px 20px !important;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Swap Container - Main Styles */
+.swap-container {
+  background: rgba(20, 20, 20, 1);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 20px !important;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Swap Container */
+@media (max-width: 480px) {
+  .swap-container {
+    border-radius: 24px;
+    padding: 16px !important;
+    margin: 0 auto;
+    max-width: 550px;
+  }
+}
+
+/* Tablet Swap Container */
+@media (min-width: 768px) {
+  .swap-container {
+    border-radius: 28px;
+    padding: 20px !important;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}
+
+/* Desktop Swap Container */
+@media (min-width: 1024px) {
+  .swap-container {
+    border-radius: 28px;
+    padding: 20px !important;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}
+
+/* Swap Header - Exact Match */
+.swap-header {
+  margin-bottom: 0.75rem; /* МЕНШЕ відступу */
+}
+
+.swap-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Mobile Tabs */
+@media (max-width: 480px) {
+  .swap-tabs {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .swap-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Tablet Tabs */
+@media (min-width: 768px) {
+  .swap-tabs {
+    gap: 0.5rem;
+  }
+}
+
+.tab {
+  font-family: 'Orbitron', monospace;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+  min-width: 100px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* Mobile Tab - ГАРМОНІЙНА ОПТИМІЗАЦІЯ */
+@media (max-width: 480px) {
+  .tab {
+    padding: 0.5rem 0.75rem; /* КОМПАКТНІШИЙ */
+    font-size: 0.8rem; /* МЕНШИЙ ШРИФТ */
+    min-width: 70px; /* МЕНША ШИРИНА */
+    height: 36px; /* МЕНША ВИСОТА */
+    border-radius: 12px; /* ЗАОКРУГЛЕНІ КУТИ */
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    
+    /* ПОКРАЩЕНИЙ ВІДГУК */
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tab:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Tablet Tab */
+@media (min-width: 768px) {
+  .tab {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    min-width: 80px;
+  }
+}
+
+/* Desktop Tab */
+@media (min-width: 1024px) {
+  .tab {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-width: 100px;
+  }
+}
+
+.tab.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tab.disabled {
+  color: #2a2a2a;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+  opacity: 0.3;
+  pointer-events: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tab.disabled:hover {
+  color: #2a2a2a;
+  background: rgba(0, 0, 0, 0.1);
+  transform: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.settings-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Swap Form - Exact Match */
+.swap-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.01rem; /* МІНІМАЛЬНИЙ відступ між полями */
+}
+
+.token-input {
+  background: rgba(40, 40, 40, 1); /* Більш світлий для виділення */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px; /* ЗАОКРУГЛЕНІ КУТИ */
+  padding: 20px !important;
+  margin: 1px 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: none;
+}
+
+/* Mobile Token Input */
+@media (max-width: 480px) {
+  .token-input {
+    border-radius: 18px;
+    padding: 16px !important;
+    margin: 1px 0;
+    box-shadow: none;
+  }
+}
+
+/* Tablet Token Input */
+@media (min-width: 768px) {
+  .token-input {
+    border-radius: var(--border-radius-xl);
+    padding: 20px !important;
+    margin: 1px 0;
+    box-shadow: none;
+  }
+}
+
+/* Desktop Token Input */
+@media (min-width: 1024px) {
+  .token-input {
+    border-radius: var(--border-radius-xl);
+    padding: 20px !important;
+    margin: 1px 0;
+    box-shadow: none;
+  }
+}
+
+/* Прибрано hover ефект з token-input */
+
+.token-label {
+  font-family: 'Orbitron', monospace;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  align-self: flex-start;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.token-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.amount-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* For sections with Max button (Swap and Withdraw) */
+.token-input .amount-section {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* For Deposit section without Max button */
+.deposit-content .amount-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.token-amount {
+  font-family: 'Orbitron', monospace;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem; /* Більший шрифт як на фото */
+  font-weight: 700; /* Жирніший шрифт */
+  width: 100%;
+  outline: none;
+  letter-spacing: -0.025em;
+}
+
+.token-amount::placeholder {
+  color: #6b7280;
+}
+
+.token-amount[readonly] {
+  cursor: default;
+  background-color: transparent;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Max Button Styles */
+.max-button {
+  background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px; /* ЗАОКРУГЛЕНІ КУТИ */
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  
+  /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.max-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.max-button:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.usd-value {
+  font-family: 'Orbitron', monospace;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.token-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Ще більший gap для зміщення тексту правіше */
+  padding: 0.75rem 1rem 0.75rem 0.75rem; /* Менший padding зліва для іконки */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50px; /* МАКСИМАЛЬНО ЗАОКРУГЛЕНІ КУТИ */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 150px; /* Збільшуємо мінімальну ширину */
+  box-shadow: none; /* Прибираємо випуклість */
+  justify-content: flex-start; /* Вирівнюємо елементи зліва */
+    
+  /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.token-selector:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none; /* Прибираємо випуклість при hover */
+}
+
+.token-selector:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.token-icon {
+  width: 32px; /* Збільшуємо іконку */
+  height: 32px; /* Збільшуємо іконку */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #6A6AFE;
+  border: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.token-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  filter: brightness(1.1) contrast(1.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.token-icon span {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 1.125rem; /* Збільшуємо шрифт для більшої іконки */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #6A6AFE;
+  border-radius: 50%;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Fallback для емодзі іконок */
+.token-icon span:not([style*="display: none"]) {
+  font-size: 1.25rem; /* Збільшуємо для більшої іконки */
+  background: #6A6AFE;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.eth-icon {
+  background: #627eea;
+}
+
+.sushi-icon {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+.token-symbol {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem; /* Ще більший розмір назви токена */
+  letter-spacing: -0.01em;
+  line-height: 1; /* Вирівнюємо з іконкою */
+  display: flex;
+  align-items: center; /* Центруємо по вертикалі з іконкою */
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.balance-section {
+  font-family: 'Orbitron', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.balance-section svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Switch Button - Exact Match */
+.swap-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -1.25rem auto; /* Збільшуємо відступ між секціями на 1-2 пікселі */
+  position: relative;
+  z-index: 5; /* ЗМЕНШУЄМО z-index щоб не перекривати */
+  align-items: center; /* ПО ЦЕНТРУ */
+}
+
+.arrow-btn {
+  background: transparent; /* Повністю прозора кнопка */
+  border: none; /* Прибираємо border */
+  border-radius: 8px; /* Трохи менші заокруглені кути */
+  width: 44px; /* Трохи менший розмір кнопки */
+  height: 44px; /* Трохи менший розмір кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавна анімація */
+  color: #ffffff;
+  box-shadow: none; /* Прибираємо тінь */
+  padding: 0; /* Без внутрішніх відступів */
+  overflow: hidden; /* Обрізаємо SVG по гранях кнопки */
+  position: relative; /* Для абсолютного позиціонування SVG */
+}
+
+.arrow-btn:hover {
+  background: transparent; /* Прозорий hover */
+  border: none; /* Прибираємо border */
+  box-shadow: none; /* Прибираємо тінь */
+  transform: translateY(-2px) scale(1.05); /* Жива анімація */
+}
+
+.arrow-btn svg {
+  transition: all 0.3s ease; /* Плавна анімація SVG */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  animation: pulse 2s ease-in-out infinite; /* Жива пульсація */
+  width: 100% !important; /* Примусово заповнює всю ширину */
+  height: 100% !important; /* Примусово заповнює всю висоту */
+  padding: 0 !important; /* Без відступів */
+  margin: 0 !important; /* Без зовнішніх відступів */
+  box-sizing: border-box; /* Включаємо padding в розмір */
+  position: absolute; /* Абсолютне позиціонування */
+  top: 0 !important; /* Початок зверху */
+  left: 0 !important; /* Початок зліва */
+  right: 0 !important; /* Досягає правого краю */
+  bottom: 0 !important; /* Досягає нижнього краю */
+  object-fit: fill; /* Заповнює весь контейнер */
+  transform: scale(1.1); /* Збільшуємо для заповнення граней */
+}
+
+.arrow-btn:hover svg {
+  animation: rotate 0.6s ease-in-out, pulse 1s ease-in-out infinite; /* Живі анімації */
+  filter: brightness(1.3) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+  transform: scale(1.2); /* Більше збільшення при hover */
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(180deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.05);
+  }
+}
+
+/* Swap Button - Exact Match */
+.swap-button {
+  font-family: 'Orbitron', monospace;
+  background: #3b82f6 !important;
+  border: none;
+  border-radius: 15px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.125rem;
+  padding: 18px 24px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 16px 0 0 0;
+  width: 100%;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 4px 8px rgba(59, 130, 246, 0.3),
+    0 2px 4px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mobile Swap Button - ЗАБОРОНЕНО ЗМІНЮВАТИ! */
+/* @media (max-width: 480px) {
+  .swap-button {
+    border-radius: 13px;
+    font-size: 1.0625rem;
+    padding: 1.125rem;
+    box-shadow: 
+      0 4px 7px rgba(59, 130, 246, 0.3),
+      0 2px 4px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+} */
+
+/* Tablet Swap Button */
+@media (min-width: 768px) {
+  .swap-button {
+    border-radius: 15px;
+    font-size: 1.125rem;
+    padding: 1rem;
+    box-shadow: 
+      0 4px 8px rgba(59, 130, 246, 0.3),
+      0 2px 4px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Desktop Swap Button */
+@media (min-width: 1024px) {
+  .swap-button {
+    border-radius: 15px;
+    font-size: 1.125rem;
+    padding: 1rem;
+    box-shadow: 
+      0 4px 8px rgba(59, 130, 246, 0.3),
+      0 2px 4px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.swap-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.swap-button:hover:not(:disabled) {
+  background: linear-gradient(145deg, #7bb3ff, #4f9eff);
+  box-shadow: 
+    0 6px 12px rgba(59, 130, 246, 0.4),
+    0 3px 6px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.swap-button:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.swap-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 6px rgba(59, 130, 246, 0.3),
+    0 1px 3px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.swap-button:disabled {
+  background: linear-gradient(145deg, #9ca3af, #6b7280);
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: 
+    0 2px 4px rgba(107, 114, 128, 0.2),
+    0 1px 2px rgba(107, 114, 128, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transform: none;
+}
+
+/* Token Modal Styles */
+.token-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(15px);
+  }
+}
+
+.token-modal {
+  background: rgba(16, 16, 16, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 420px;
+  width: 90%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -ms-overflow-style: none;
+  animation: slideIn 0.15s ease-out;
+}
+
+/* Mobile Token Modal */
+@media (max-width: 480px) {
+  .token-modal {
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 90%;
+    max-height: 70vh;
+  }
+}
+
+/* Tablet Token Modal */
+@media (min-width: 768px) {
+  .token-modal {
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 90%;
+    max-height: 70vh;
+  }
+}
+
+/* Desktop Token Modal */
+@media (min-width: 1024px) {
+  .token-modal {
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 90%;
+    max-height: 70vh;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.token-modal::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.token-modal {
+  scroll-behavior: smooth;
+}
+
+.token-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.token-modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.token-modal-header h3 {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.token-modal-header button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.token-modal-header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.token-list {
+  display: flex;
+    flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 0.5rem; /* Додаємо відступ для компенсації прихованого скролбара */
+}
+
+.token-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.token-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.token-option:hover .token-icon {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.token-option:hover .token-icon img {
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.token-info {
+  flex: 1;
+}
+
+.token-info .token-symbol {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.token-info .token-name {
+  font-family: 'Inter', sans-serif;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.token-info .token-price {
+  font-family: 'Orbitron', monospace;
+  color: #10b981;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 0.25rem;
+}
+
+/* Deposit Styles */
+.deposit-content {
+  text-align: left;
+  padding: 1rem 0; /* Зменшуємо padding щоб наблизити текст до контейнера */
+  font-family: 'Orbitron', monospace !important;
+  color: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Трошки більше gap між елементами */
+  min-height: 300px; /* Зменшуємо висоту секції */
+  justify-content: flex-start; /* Елементи зверху */
+}
+
+.deposit-content .token-input {
+  padding: 25px 20px;
+  margin: 0;
+  margin-top: 0.25rem; /* Мінімальний відступ до тексту */
+  margin-bottom: 0; /* Прибираємо відступ знизу */
+}
+
+/* Кнопка депозиту трохи нижче */
+.deposit-content .swap-button {
+  margin: 0; /* Прибираємо всі відступи */
+  margin-top: 1.5rem; /* Більший відступ від input контейнера */
+  margin-bottom: 0; /* Прибираємо відступ знизу */
+}
+
+.deposit-title {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  margin: 0;
+  margin-bottom: 0.25rem; /* Мінімальний відступ до опису */
+  letter-spacing: -0.025em;
+  text-align: center; /* По центру */
+}
+
+.deposit-description {
+  font-family: 'Orbitron', monospace !important;
+  color: #888 !important; /* Колір як в секції виводу */
+  font-size: 12px; /* Зменшуємо розмір тексту */
+  margin: 0;
+  margin-bottom: 0.25rem; /* Мінімальний відступ до input */
+  line-height: 1.4;
+  text-align: center; /* По центру */
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .deposit-content {
+    padding: 1.25rem 0;
+    gap: 1.25rem;
+  }
+  
+  .deposit-title {
+    font-size: 1.5rem;
+  }
+  
+  .deposit-description {
+    font-size: 0.9rem;
+  }
+  
+  .deposit-content .token-input {
+    padding: 20px 15px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .deposit-content {
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+  
+  .deposit-title {
+    font-size: 1.25rem;
+  }
+  
+  .deposit-description {
+    font-size: 0.85rem;
+  }
+  
+  .deposit-content .token-input {
+    padding: 18px 12px;
+    margin: 0;
+  }
+  
+  .header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+
+  .wallet-section {
+    gap: 0.5rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .swap-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .deposit-content .token-input {
+    padding: 18px 15px;
+    margin: 0.5rem 0;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .wallet-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Withdraw Content Styles */
+.withdraw-content {
+  padding: 20px; /* Стандартний padding */
+  font-family: 'Orbitron', monospace;
+}
+
+/* Withdraw контейнер збалансованої ширини */
+.swap-container:has(.withdraw-content) {
+  max-width: 600px !important; /* Збалансована ширина */
+}
+
+.withdraw-content {
+  max-width: 600px !important; /* Збалансована ширина */
+}
+
+/* Внутрішній контейнер withdraw збалансований */
+.withdraw-content .token-input {
+  max-width: 550px !important; /* Збалансована ширина внутрішнього контейнера */
+  margin: 0 auto; /* Центруємо */
+}
+
+/* Responsive стилі для withdraw контейнера */
+@media (max-width: 1600px) {
+  .swap-container:has(.withdraw-content),
+  .withdraw-content {
+    max-width: 600px !important; /* Збалансована ширина */
+  }
+  
+  .withdraw-content .token-input {
+    max-width: 550px !important; /* Збалансована ширина внутрішнього контейнера */
+  }
+}
+
+@media (max-width: 650px) {
+  .swap-container:has(.withdraw-content),
+  .withdraw-content {
+    max-width: 600px !important; /* Збалансована ширина */
+  }
+  
+  .withdraw-content .token-input {
+    max-width: 550px !important; /* Збалансована ширина внутрішнього контейнера */
+  }
+}
+
+@media (max-width: 1024px) {
+  .swap-container:has(.withdraw-content),
+  .withdraw-content {
+    max-width: 600px !important; /* Збалансована ширина */
+  }
+  
+  .withdraw-content .token-input {
+    max-width: 550px !important; /* Збалансована ширина внутрішнього контейнера */
+  }
+}
+
+@media (max-width: 768px) {
+  .swap-container:has(.withdraw-content),
+  .withdraw-content {
+    max-width: 600px !important; /* Збалансована ширина */
+  }
+  
+  .withdraw-content .token-input {
+    max-width: 550px !important; /* Збалансована ширина внутрішнього контейнера */
+  }
+}
+
+@media (max-width: 480px) {
+  .swap-container:has(.withdraw-content),
+  .withdraw-content {
+    max-width: 100% !important; /* Повна ширина на мобільних */
+  }
+  
+  .withdraw-content .token-input {
+    max-width: 100% !important; /* Повна ширина на мобільних */
+  }
+}
+
+.withdraw-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: -0.025em;
+  text-align: center; /* По центру */
+}
+
+.withdraw-description {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: -0.01em;
+  text-align: center; /* По центру */
+}
+
+.address-input {
+  margin-bottom: 20px;
+}
+
+.address-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.address-field {
+  width: 100%;
+  padding: 12px 16px; /* Стандартний padding */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; /* ЗАОКРУГЛЕНІ КУТИ */
+  color: #ffffff;
+  font-size: 0.8rem;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Tablet Address Field */
+@media (min-width: 768px) {
+  .address-field {
+    padding: 12px 14px;
+    font-size: 0.875rem;
+    border-radius: 11px;
+  }
+}
+
+/* Desktop Address Field */
+@media (min-width: 1024px) {
+  .address-field {
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: var(--border-radius-md);
+  }
+}
+
+.address-field:focus {
+  outline: none;
+  border-color: #627eea;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.address-field::placeholder {
+  color: #666;
+}
+
+.token-balance {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* Address Section Styles */
+.address-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.address-label {
+    font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: -0.01em;
+}
+
+.address-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.address-field {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-family: 'Orbitron', monospace;
+}
+
+.address-field:focus {
+  outline: none;
+  border-color: #627eea;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(98, 126, 234, 0.1);
+}
+
+.address-field::placeholder {
+  color: #666;
+  font-family: 'Orbitron', monospace;
+}
+
+/* Force Header Layout - Override All */
+.header .logo-section {
+  order: 1 !important;
+  flex-shrink: 0;
+}
+
+.header .wallet-section {
+  order: 2 !important;
+  margin-left: auto !important;
+  margin-right: 1rem !important; /* Додатковий відступ від правого краю */
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.header .connect-wallet {
+  background: #3b82f6 !important;
+}
+
+/* Ultra Performance CSS Variables */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(40px);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-button: 0 4px 16px rgba(102, 126, 234, 0.3);
+  --shadow-hover: 0 8px 24px rgba(102, 126, 234, 0.4);
+  --shadow-active: 0 2px 8px rgba(102, 126, 234, 0.3);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Mobile Optimizations - Perfect Design */
+@media (max-width: 480px) {
+  .swap-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .token-input:not(:last-child) {
+    margin-bottom: 0;
+  }
+  
+  /* Мобільні оптимізації для кнопки стрілки - ВИПРАВЛЯЄМО ПЕРЕКРИТТЯ */
+  .swap-arrow {
+    /* Збільшуємо відступ між секціями на 1-2 пікселі */
+    margin: -1.25rem auto;
+    position: relative;
+    z-index: 5; /* ЗМЕНШУЄМО z-index щоб не перекривати */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Додаємо тільки мобільні оптимізації */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    
+  /* Виправляємо перекриття */
+  pointer-events: auto;
+  isolation: isolate;
+  
+  /* Додаємо стилі для елементів що можуть перекриватися */
+  .token-input {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .balance-display {
+    position: relative;
+    z-index: 1;
+  }
+  }
+  
+  .arrow-btn {
+    /* Трохи менші розміри */
+    width: 44px;
+    height: 44px;
+    border-radius: 8px; /* Трохи менші заокруглені кути */
+    
+    /* Додаємо мобільні оптимізації */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px; /* Мінімальний розмір для дотику */
+    
+    /* Виправляємо перекриття */
+    position: relative;
+    z-index: 5; /* ЗМЕНШУЄМО z-index */
+    
+    /* Покращуємо відгук на дотик */
+    transition: all 0.15s ease;
+  }
+  
+  .arrow-btn:active {
+    /* Покращуємо відгук на дотик */
+    transform: scale(0.95);
+    background: transparent; /* Прозорий active */
+    border: none; /* Прибираємо border */
+    box-shadow: none; /* Прибираємо тінь */
+  }
+  
+  .arrow-btn svg {
+    /* Покращуємо відгук іконки на дотик */
+    transition: all 0.15s ease;
+  }
+  
+  .arrow-btn:active svg {
+    /* Анімація при дотику */
+    transform: rotate(180deg);
+    filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+  
+  .token-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+  
+  .amount-section {
+    width: 100%;
+  }
+  
+  .token-selector {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.75rem;
+  }
+  
+  .token-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .max-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    min-height: 32px;
+    border-radius: var(--border-radius-md);
+  }
+}
+
+/* Mobile First Responsive Design - PERFECT OPTIMIZATION */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.375rem 0.5rem; /* ЩЕ КОМПАКТНІШИЙ */
+    flex-wrap: nowrap;
+    gap: 0.375rem; /* ЩЕ МЕНШИЙ GAP */
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: row;
+    min-height: 50px; /* ЩЕ МЕНША ВИСОТА */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    width: 100% !important;
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .header .logo-section {
+    flex-shrink: 0;
+    min-width: 0;
+    gap: 0.25rem; /* Зменшуємо відступ між лого і назвою */
+  }
+  
+  .header .wallet-section {
+    flex-shrink: 0;
+    gap: 1.5rem;
+    margin-left: auto !important; /* Переміщуємо мережу вправо */
+    margin-right: 0.5rem !important; /* Додатковий відступ від правого краю */
+    order: 2 !important;
+  }
+  
+  .network-badge {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.7rem;
+    gap: 0.375rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .connect-wallet {
+    display: flex !important;
+  }
+  
+  .header .connect-wallet {
+    display: flex !important;
+  }
+  
+  /* Додаткові стилі для переміщення мережі вправо */
+  .header {
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+  
+  .header .logo-section {
+    order: 1 !important;
+    flex-shrink: 0;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  .header .wallet-section {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: 1rem !important; /* Ще більший відступ від правого краю */
+    flex-shrink: 0;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  
+  .ethereum-price {
+    font-size: 0.8rem;
+    gap: 0.375rem;
+  }
+  
+  .ethereum-price .eth-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+  
+  .main-content {
+    padding: 0.75rem; /* КОМПАКТНІШИЙ */
+    padding-top: 4.5rem; /* МЕНШИЙ ВІДСТУП ДЛЯ ХЕДЕРА */
+    min-height: calc(100vh - 50px); /* МЕНША ВИСОТА */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    min-width: 60px;
+    border-radius: var(--border-radius-md);
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .swap-button {
+    padding: 18px 24px !important; /* ЯК В ОСНОВНОМУ КОНТЕЙНЕРІ */
+    font-size: 1rem; /* МЕНШИЙ ШРИФТ */
+    border-radius: 14px; /* ЗАОКРУГЛЕНІ КУТИ */
+    margin: 16px 0 0 0; /* БІЛЬШИЙ ВІДСТУП */
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+    min-height: 48px; /* МІНІМАЛЬНА ВИСОТА ДЛЯ ДОТИКУ */
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.3);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .swap-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .swap-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      var(--shadow-hover),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .swap-button:hover::before {
+    left: 100%;
+  }
+  
+  .swap-button:active {
+    transform: scale(0.98) translateY(2px);
+    box-shadow: 
+      var(--shadow-active),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  }
+  
+  .token-modal {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-xl);
+    max-height: 75vh;
+    width: 95%;
+    max-width: 400px;
+    margin: 1rem auto;
+  }
+  
+  .token-modal .token-option {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: var(--border-radius-lg);
+    min-height: 60px;
+  }
+  
+  .token-modal .token-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .toast {
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 10px; /* ЗАОКРУГЛЕНІ КУТИ */
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .toast-title {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .toast-message {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+}
+
+/* iPhone SE and smaller */
+@media (max-width: 375px) {
+  .header {
+    padding: 0.375rem 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    min-height: 50px;
+  }
+  
+  .header .logo-section {
+    flex-shrink: 0;
+    min-width: 0;
+    gap: 0.25rem; /* Зменшуємо відступ між лого і назвою */
+  }
+  
+  .header .wallet-section {
+    flex-shrink: 0;
+    gap: 0.25rem;
+    margin-left: auto !important; /* Переміщуємо мережу вправо */
+    margin-right: 0.25rem !important; /* Додатковий відступ від правого краю */
+    order: 2 !important;
+  }
+  
+  .network-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    gap: 0.25rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .connect-wallet {
+    display: flex !important;
+  }
+  
+  .header .connect-wallet {
+    display: flex !important;
+  }
+  
+  /* Додаткові стилі для переміщення мережі вправо */
+  .header {
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+  
+  .header .logo-section {
+    order: 1 !important;
+    flex-shrink: 0;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  .header .wallet-section {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: 0.75rem !important; /* Ще більший відступ від правого краю */
+    flex-shrink: 0;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  
+  .ethereum-price {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+  
+  .ethereum-price .eth-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
+  }
+  
+  .main-content {
+    padding: 0.5rem; /* ЩЕ КОМПАКТНІШИЙ */
+    padding-top: 4rem; /* ЩЕ МЕНШИЙ ВІДСТУП */
+    min-height: calc(100vh - 45px); /* ЩЕ МЕНША ВИСОТА */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tab {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.75rem;
+    min-width: 50px;
+    border-radius: 10px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .swap-button {
+    padding: 18px 24px !important;
+    font-size: 0.8rem;
+    border-radius: var(--border-radius-md);
+    margin: 16px 0 0 0;
+    min-height: 40px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 
+      var(--shadow-button),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .swap-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      var(--shadow-hover),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .swap-button:hover::before {
+    left: 100%;
+  }
+  
+  .swap-button:active {
+    transform: translateY(0);
+    box-shadow: 
+      var(--shadow-active),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Performance Optimizations */
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Ultra Hardware Acceleration for Animations */
+.swap-button,
+.token-input,
+.swap-arrow,
+.tab,
+.connect-wallet {
+  will-change: transform, box-shadow, border-color;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* GPU Layer Promotion */
+.swap-button:hover,
+.token-input:hover,
+.tab:hover {
+  transform: translateZ(0) translateY(-2px);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ultra Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  /* Тільки для елементів що потребують дотику, НЕ для кнопки */
+  .token-input,
+  .tab,
+  .connect-wallet {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .token-input input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 12px; /* ЗАОКРУГЛЕНІ КУТИ */
+  }
+  
+  /* Ultra Smooth Scrolling */
+  .main-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Ultra Performance for Mobile - БЕЗ КНОПКИ */
+  .swap-container,
+  .token-input {
+    contain: layout style paint;
+  }
+  
+  /* Perfect Mobile Touch Optimization - ЗАБОРОНЕНО ДЛЯ КНОПКИ */
+  /* .swap-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  } */
+  
+  .token-input:focus-within {
+    transform: translateY(-2px);
+    box-shadow: none;
+  }
+  
+  /* Mobile Scroll Optimization */
+  .main-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Mobile Input Optimization */
+  input[type="number"] {
+    font-size: 16px; /* Prevent zoom on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /* Mobile Button Optimization */
+  .swap-button,
+  .connect-wallet,
+  .max-button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* ULTRA PERFECT MOBILE OPTIMIZATION */
+  .header {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .swap-container {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .token-input {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .swap-button {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Perfect Mobile Animations */
+  .swap-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .token-input:hover {
+    transform: translateY(-1px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Perfect Mobile Performance */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* ULTRA PERFECT MOBILE PERFORMANCE */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Perfect Mobile GPU Acceleration */
+  .header,
+  .swap-container,
+  .token-input,
+  .swap-button {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Perfect Mobile Memory Management */
+  .main-content {
+    contain: layout style paint;
+    content-visibility: auto;
+  }
+  
+  /* Perfect Mobile Accessibility */
+  .swap-button:focus,
+  .token-input:focus,
+  .connect-wallet:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}
+
+/* ULTRA SPECIFIC MOBILE HEADER OVERRIDE - FINAL FIX */
+@media (max-width: 480px) {
+  .header .wallet-section {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: 1.5rem !important; /* Зменшено для iPhone 12 */
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 999 !important;
+  }
+}
+
+/* iPhone 12 specific fix */
+@media (max-width: 390px) {
+  .header .wallet-section {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: 1rem !important; /* Оптимально для iPhone 12 */
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 999 !important;
+  }
+  
+  .header .wallet-section:has(.connect-wallet:not([disabled])) {
+    margin-right: 1rem !important; /* Оптимально для iPhone 12 */
+  }
+  
+  .header .wallet-section:has(.connect-wallet[disabled]) {
+    margin-right: 1rem !important; /* Оптимально для iPhone 12 */
+  }
+}
+
+@media (max-width: 375px) {
+  .header .wallet-section {
+    order: 2 !important;
+    margin-left: auto !important;
+    margin-right: 1.5rem !important; /* Ще правіше */
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 999 !important;
+  }
+}
+
+/* ULTRA PERFECT OPTIMIZATION FOR ALL DEVICES */
+@media (min-width: 1024px) {
+  .header .wallet-section {
+    margin-left: 6rem !important; /* БІЛЬШИЙ відступ від назви для ПК */
+    margin-right: 0.5rem !important; /* Desktop - неактивна кнопка правіше */
+  }
+  
+  /* АКТИВНА КНОПКА НА ПК - ЛІВІШЕ ДЛЯ ХРЕСТИКА */
+  .header .wallet-section:has(.connect-wallet:not([disabled])) {
+    margin-left: 5rem !important; /* МЕНШИЙ відступ від назви для активної кнопки */
+    margin-right: 1.5rem !important; /* АКТИВНА КНОПКА ЛІВІШЕ */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header .wallet-section {
+    margin-left: 5.5rem !important; /* БІЛЬШИЙ відступ від назви для планшетів */
+    margin-right: 0.5rem !important; /* Tablet - неактивна кнопка правіше */
+  }
+  
+  /* АКТИВНА КНОПКА НА ПЛАНШЕТІ - ЛІВІШЕ ДЛЯ ХРЕСТИКА */
+  .header .wallet-section:has(.connect-wallet:not([disabled])) {
+    margin-left: 4.5rem !important; /* МЕНШИЙ відступ від назви для активної кнопки */
+    margin-right: 1.25rem !important; /* АКТИВНА КНОПКА ЛІВІШЕ */
+  }
+}
+
+/* ULTRA MOBILE HEADER FIX - FINAL OVERRIDE */
+@media (max-width: 480px) {
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+  }
+  
+  /* Кнопка Connect в хедері - ТОЧНО ЯК НА ПК */
+  
+  .header .wallet-section {
+    /* КНОПКА CONNECT В ПРАВОМУ КУТІ - НЕАКТИВНА ПРАВІШЕ */
+    display: flex !important;
+    align-items: center;
+    gap: 1rem; /* ВЕЛИКИЙ gap */
+    order: 2 !important;
+    margin-left: 3rem !important; /* БІЛЬШИЙ відступ від назви для неактивної кнопки */
+    margin-right: 1.5rem !important; /* Зменшено для iPhone 12 */
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  /* ПРИБИРАЄМО СЕКЦІЮ МЕРЕЖІ НА МОБІЛЬНИХ */
+  .header .network-badge {
+    display: none !important; /* Прибираємо мережу на мобільних */
+  }
+  
+  /* АКТИВНА КНОПКА CONNECT - ЛІВІШЕ ДЛЯ ХРЕСТИКА НА МОБІЛЬНИХ */
+  .header .wallet-section:has(.connect-wallet:not([disabled])) {
+    margin-left: 1.2rem !important; /* ЗНАЧНО МЕНШИЙ відступ від назви для активної кнопки */
+    margin-right: 1.5rem !important; /* Зменшено для iPhone 12 */
+  }
+  
+  /* КОЛИ КНОПКА ПІДКЛЮЧЕНА - ДОДАТКОВИЙ ПРОСТІР ДЛЯ ХРЕСТИКА */
+  .header .wallet-section:has(.connect-wallet[disabled]) {
+    margin-right: 1.5rem !important; /* Зменшено для iPhone 12 */
+  }
+  
+  /* Псевдоелемент ::after видалено - використовуємо WalletConnect компонент */
+}
+
+/* Мобільні стилі для кнопки Connect видалено - використовуємо ПК стилі */
+
+/* Connect Wallet Button in Swap Section - 3D Blue Style */
+.connect-wallet-swap {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 6px 20px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(59, 130, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.connect-wallet-swap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.connect-wallet-swap:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 30px rgba(59, 130, 246, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(59, 130, 246, 0.3);
+}
+
+.connect-wallet-swap:hover::before {
+  left: 100%;
+}
+
+.connect-wallet-swap:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 15px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Hover ефекти для кнопки Connect на мобільних - оптимізовано */
+@media (max-width: 480px) {
+  .header::after:hover {
+    background: #2563eb !important;
+    box-shadow: 
+      0 4px 12px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  .header::after:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 2px 4px rgba(59, 130, 246, 0.3),
+      0 1px 2px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 375px) {
+  .header::after:hover {
+    background: #2563eb !important;
+    box-shadow: 
+      0 3px 8px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  .header::after:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 1px 3px rgba(59, 130, 246, 0.3),
+      0 1px 2px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* REOWN APPKIT ШРИФТИ - ОПТИМІЗАЦІЯ */
+w3m-modal,
+w3m-modal *,
+w3m-modal::before,
+w3m-modal::after {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ЗАГОЛОВКИ REOWN APPKIT */
+w3m-modal h1,
+w3m-modal h2,
+w3m-modal h3,
+w3m-modal h4,
+w3m-modal h5,
+w3m-modal h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* КНОПКИ REOWN APPKIT */
+w3m-modal button,
+w3m-modal [role="button"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ПОЛЯ ВВОДУ REOWN APPKIT */
+w3m-modal input,
+w3m-modal textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* МОБІЛЬНІ ОПТИМІЗАЦІЇ ДЛЯ REOWN APPKIT */
+@media (max-width: 768px) {
+  w3m-modal,
+  w3m-modal * {
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+  
+  w3m-modal h1,
+  w3m-modal h2,
+  w3m-modal h3 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+  
+  w3m-modal button,
+  w3m-modal [role="button"] {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* Custom Toast Styles - УНІФІКОВАНІ */
+.toast-overlay {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  left: 15px;
+  z-index: 9999;
+  animation: slideInRight 0.3s ease-out;
+  
+  /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Tablet Toast */
+@media (min-width: 768px) {
+  .toast-overlay {
+    bottom: 18px;
+    right: 18px;
+    left: auto;
+    max-width: 320px;
+  }
+}
+
+/* Desktop Toast */
+@media (min-width: 1024px) {
+  .toast-overlay {
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    max-width: 350px;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(16, 16, 16, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; /* ЗАОКРУГЛЕНІ КУТИ */
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  min-width: 250px;
+  max-width: 100%;
+  width: 100%;
+  animation: fadeIn 0.15s ease-out;
+  
+  /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tablet Toast - ГАРМОНІЙНА ОПТИМІЗАЦІЯ */
+@media (min-width: 768px) {
+  .toast {
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 14px; /* ЗАОКРУГЛЕНІ КУТИ */
+    min-width: 280px;
+    max-width: 320px;
+    width: auto;
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Desktop Toast - ГАРМОНІЙНА ОПТИМІЗАЦІЯ */
+@media (min-width: 1024px) {
+  .toast {
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 16px; /* ЗАОКРУГЛЕНІ КУТИ */
+    min-width: 300px;
+    max-width: 350px;
+    width: auto;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.info {
+  border-left: 4px solid #3b82f6;
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast.error .toast-icon {
+  color: #ef4444;
+}
+
+.toast.success .toast-icon {
+  color: #10b981;
+}
+
+.toast.info .toast-icon {
+  color: #3b82f6;
+}
+
+.toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.toast-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.toast-message {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.toast-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Wallet Connected Styles */
+.wallet-connected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(16, 16, 16, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.wallet-address {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  background: rgba(98, 126, 234, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(98, 126, 234, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.wallet-address:hover {
+  background: rgba(98, 126, 234, 0.2);
+  border-color: rgba(98, 126, 234, 0.3);
+  box-shadow: 0 2px 8px rgba(98, 126, 234, 0.2);
+}
+
+.wallet-address:active {
+  transform: translateY(0);
+  background: rgba(98, 126, 234, 0.3);
+}
+
+.disconnect-btn {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  color: #ff6b6b;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 14px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 2px 6px rgba(239, 68, 68, 0.2),
+    0 1px 2px rgba(239, 68, 68, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.disconnect-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.disconnect-btn:hover {
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.2));
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ff8a8a;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 8px rgba(239, 68, 68, 0.3),
+    0 1px 3px rgba(239, 68, 68, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.disconnect-btn:hover::before {
+  opacity: 1;
+}
+
+/* Toast анімації */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Data Management Panel */
+.data-management-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.data-management-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.data-management-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.data-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.data-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.export-btn:hover {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.import-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+}
+
+.clear-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.data-btn svg {
+  flex-shrink: 0;
+}
+
+/* Responsive Design for Data Management */
+@media (max-width: 768px) {
+  .data-management-panel {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    max-width: none;
+    padding: 12px;
+  }
+  
+  .data-management-buttons {
+    flex-direction: row;
+    gap: 6px;
+  }
+  
+  .data-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .data-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Mobile Optimizations - ТОЧНО як на ПК, тільки оптимізації */
+@media (max-width: 768px) {
+  /* Зберігаємо ВСІ стилі ПК, додаємо тільки необхідні мобільні оптимізації */
+  
+  /* 1. Touch targets - тільки для елементів що потребують дотику */
+  .token-option, .token-selector {
+    min-height: 44px; /* Мінімальний розмір для дотику */
+    touch-action: manipulation;
+  }
+  
+  /* 2. Запобігаємо зуму на iOS */
+  input, textarea {
+    font-size: 16px !important; /* Запобігає зуму на iOS */
+  }
+  
+  /* 3. Покращуємо скролінг на мобільних */
+  .token-modal {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* 4. Оптимізуємо модальні вікна для малих екранів */
+  .token-modal {
+    max-height: 80vh;
+  }
+  
+  /* 5. Покращуємо toast повідомлення */
+  .toast {
+    max-width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+  }
+  
+  /* 6. Оптимізуємо скролінг контенту */
+  .sushi-app {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 7. Покращуємо фокус для доступності */
+
+  
+  /* 8. Оптимізуємо продуктивність */
+  .token-modal {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* ГАРМОНІЙНА МОБІЛЬНА КНОПКА CONNECT */
+  .connect-wallet {
+    /* ГАРМОНІЙНІ РОЗМІРИ ДЛЯ МОБІЛЬНИХ */
+    min-width: 90px !important; /* ГАРМОНІЙНО для мобільних */
+    padding: 0.5rem 1rem !important; /* ГАРМОНІЙНО padding */
+    font-size: 0.7rem !important; /* ГАРМОНІЙНО шрифт */
+    
+    /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+    min-height: 36px !important; /* ГАРМОНІЙНА висота */
+    display: flex !important; /* Flexbox для правильного вирівнювання */
+    align-items: center !important; /* Вертикальне центрування */
+    justify-content: center !important; /* Горизонтальне центрування */
+    text-align: center !important; /* Центрування тексту */
+    line-height: 1 !important; /* Фіксована висота рядка */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.4);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    
+    /* ПОКРАЩЕНИЙ ВІДГУК НА ДОТИК */
+    transition: all 0.1s ease;
+    position: relative;
+    overflow: hidden;
+    
+    /* ГАРМОНІЙНІ МОБІЛЬНІ СТИЛІ */
+    border-radius: 10px !important; /* ГАРМОНІЙНЕ заокруглення */
+    box-shadow: 
+      0 3px 10px rgba(59, 130, 246, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    
+    /* ГАРМОНІЙНИЙ ГРАДІЄНТ */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  }
+  
+  .connect-wallet:active {
+    /* СУПЕР ВІДГУК НА ДОТИК */
+    transform: scale(0.92) translateY(3px) !important;
+    background: #1d4ed8 !important;
+    box-shadow: 
+      0 1px 4px rgba(59, 130, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  }
+  
+  .connect-wallet:focus {
+    /* ПОКРАЩЕНИЙ ФОКУС */
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* АНІМАЦІЯ ПРИ ПІДКЛЮЧЕННІ */
+  .connect-wallet:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* ПОКРАЩЕНИЙ HOVER ДЛЯ МОБІЛЬНИХ */
+  .connect-wallet:hover {
+    background: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 
+      0 4px 12px rgba(59, 130, 246, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  
+  /* ВСЕ ІНШЕ ЗАЛИШАЄТЬСЯ ТОЧНО ЯК НА ПК! */
+}
+
+/* Extra small mobile devices - тільки необхідні зміни */
+@media (max-width: 480px) {
+  /* Тільки мінімальні зміни для дуже малих екранів */
+  .toast {
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+  
+       /* УЛЬТРА КОМПАКТНА КНОПКА CONNECT НА ДУЖЕ МАЛИХ ЕКРАНАХ */
+       .connect-wallet {
+         /* УЛЬТРА КОМПАКТНІ РОЗМІРИ */
+         min-width: 70px !important; /* ЩЕ МЕНШИЙ */
+         padding: 0.25rem 0.5rem !important; /* ЩЕ КОМПАКТНІШИЙ */
+         font-size: 0.6rem !important; /* ЩЕ МЕНШИЙ ШРИФТ */
+         
+         /* МОБІЛЬНІ ОПТИМІЗАЦІЇ */
+         min-height: 28px !important; /* ЩЕ МЕНША ВИСОТА */
+         touch-action: manipulation;
+         -webkit-tap-highlight-color: rgba(59, 130, 246, 0.5);
+         -webkit-touch-callout: none;
+         -webkit-user-select: none;
+         user-select: none;
+         
+         /* ПОКРАЩЕНИЙ ВІДГУК НА ДОТИК */
+         transition: all 0.08s ease;
+         position: relative;
+         overflow: hidden;
+         
+         /* УЛЬТРА КОМПАКТНІ СТИЛІ */
+         border-radius: 6px !important; /* ЩЕ МЕНШЕ заокруглення */
+         box-shadow: 
+           0 1px 6px rgba(59, 130, 246, 0.3),
+           inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+         
+         /* УЛЬТРА КОМПАКТНИЙ ГРАДІЄНТ */
+         background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+       }
+  
+  /* УЛЬТРА КОМПАКТНІ ВІДСТУПИ КНОПКИ CONNECT */
+  .header .wallet-section {
+    margin-left: 3rem !important; /* БІЛЬШИЙ відступ від назви для дуже малих екранів */
+    margin-right: 0.25rem !important; /* НЕАКТИВНА КНОПКА ПРАВІШЕ */
+  }
+  
+  /* АКТИВНА КНОПКА НА ДУЖЕ МАЛИХ ЕКРАНАХ - ЛІВІШЕ ДЛЯ ХРЕСТИКА */
+  .header .wallet-section:has(.connect-wallet:not([disabled])) {
+    margin-left: 3.5rem !important; /* ЗНАЧНО МЕНШИЙ відступ від назви для активної кнопки */
+    margin-right: 1.5rem !important; /* БІЛЬШИЙ відступ від краю для хрестика */
+  }
+  
+  .connect-wallet:active {
+    /* МЕГА ВІДГУК НА ДУЖЕ МАЛИХ ЕКРАНАХ */
+    transform: scale(0.88) translateY(4px) !important;
+    background: #1e40af !important;
+    box-shadow: 
+      0 1px 3px rgba(59, 130, 246, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .connect-wallet:hover {
+    /* ПОКРАЩЕНИЙ HOVER ДЛЯ ДУЖЕ МАЛИХ ЕКРАНІВ */
+    background: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 
+      0 3px 10px rgba(59, 130, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Оптимізації для кнопки стрілки на дуже малих екранах */
+  .arrow-btn {
+    /* Трохи менші розміри */
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    
+    /* Покращуємо відгук на дуже малих екранах */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .arrow-btn:active {
+    /* Більш помітний відгук на дуже малих екранах */
+    transform: scale(0.9);
+    background: transparent; /* Прозорий active */
+    border: none; /* Прибираємо border */
+    box-shadow: none; /* Прибираємо тінь */
+  }
+}
+
+/* Landscape mobile - тільки висота модальних вікон */
+@media (max-width: 768px) and (orientation: landscape) {
+  .token-modal {
+    max-height: 70vh;
+  }
+  
+  /* ГАРМОНІЙНА КНОПКА CONNECT В LANDSCAPE РЕЖИМІ */
+  .connect-wallet {
+    /* ГАРМОНІЙНІ РОЗМІРИ ДЛЯ LANDSCAPE */
+    min-width: 60px !important; /* ГАРМОНІЙНО для landscape */
+    padding: 0.25rem 0.5rem !important; /* ГАРМОНІЙНО padding */
+    font-size: 0.6rem !important; /* ГАРМОНІЙНО шрифт */
+    
+    /* ОПТИМІЗАЦІЇ ДЛЯ LANDSCAPE */
+    min-height: 28px !important; /* ГАРМОНІЙНА висота */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.4);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    
+    /* ПОКРАЩЕНИЙ ВІДГУК НА ДОТИК */
+    transition: all 0.06s ease;
+    position: relative;
+    overflow: hidden;
+    
+    /* ГАРМОНІЙНІ LANDSCAPE СТИЛІ */
+    border-radius: 6px !important; /* ГАРМОНІЙНЕ заокруглення */
+    box-shadow: 
+      0 1px 6px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    
+    /* ГАРМОНІЙНИЙ ГРАДІЄНТ */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  }
+  
+  .connect-wallet:active {
+    /* УЛЬТРА ВІДГУК В LANDSCAPE */
+    transform: scale(0.85) translateY(3px) !important;
+    background: #1e40af !important;
+    box-shadow: 
+      0 1px 2px rgba(59, 130, 246, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .connect-wallet:hover {
+    /* ПОКРАЩЕНИЙ HOVER В LANDSCAPE */
+    background: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 
+      0 2px 6px rgba(59, 130, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* High DPI displays - оптимізація для Retina екранів */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-image, .token-selector img, .token-option img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+

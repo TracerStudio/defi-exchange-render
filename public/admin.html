@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Admin Panel</title>
+    <link rel="icon" type="image/png" href="/logo-png/logo.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #101010;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #101010;
+        }
+        
+        .loading-logo {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        
+        .loading-subtitle {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #101010;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .error-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 2rem;
+            color: #ef4444;
+        }
+        
+        .error-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        
+        .error-message {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        
+        .error-retry-btn {
+            font-family: 'Orbitron', monospace;
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            letter-spacing: -0.01em;
+        }
+        
+        .error-retry-btn:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="loading-container">
+            <img src="/logo-png/logo.png" alt="Aether Logo" class="loading-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display: none; width: 64px; height: 64px; background: #3b82f6; border-radius: 8px; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="#ffffff" strokeWidth="2"/>
+                    <path d="M9 9H15M9 15H15" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+            </div>
+            <div class="loading-text">Aether Admin</div>
+            <div class="loading-subtitle">Завантаження панелі адміністратора...</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Fallback error handling
+        window.addEventListener('error', function(e) {
+            console.error('Application error:', e);
+            document.getElementById('root').innerHTML = `
+                <div class="error-container">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <div class="error-title">Помилка завантаження</div>
+                    <div class="error-message">
+                        Не вдалося завантажити панель адміністратора.<br>
+                        Перевірте підключення до інтернету та спробуйте ще раз.
+                    </div>
+                    <button class="error-retry-btn" onclick="window.location.reload()">
+                        Спробувати знову
+                    </button>
+                </div>
+            `;
+        });
+        
+        // Timeout fallback
+        setTimeout(() => {
+            if (document.querySelector('.loading-container')) {
+                document.getElementById('root').innerHTML = `
+                    <div class="error-container">
+                        <svg class="error-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <div class="error-title">Тайм-аут завантаження</div>
+                        <div class="error-message">
+                            Завантаження займає занадто багато часу.<br>
+                            Перевірте підключення до інтернету та спробуйте ще раз.
+                        </div>
+                        <button class="error-retry-btn" onclick="window.location.reload()">
+                            Спробувати знову
+                        </button>
+                    </div>
+                `;
+            }
+        }, 10000); // 10 seconds timeout
+    </script>
+</body>
+</html>

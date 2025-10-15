@@ -1,0 +1,1506 @@
+/* Admin Panel Styles - Unified Section Design */
+
+/* Smooth transitions for admin panel */
+.admin-unified-section {
+  scroll-behavior: smooth;
+}
+
+/* Add some animations but keep them lightweight */
+.admin-balance-card {
+  transition: all 0.3s ease;
+}
+
+.admin-balance-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.admin-token-selector {
+  transition: all 0.3s ease;
+}
+
+.admin-token-selector:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.admin-withdraw-btn,
+.admin-withdraw-all-btn {
+  transition: all 0.3s ease;
+}
+
+.admin-withdraw-btn:hover:not(:disabled),
+.admin-withdraw-all-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Disable heavy animations but keep smooth transitions */
+.admin-unified-section,
+.admin-unified-section *,
+.admin-unified-section *::before,
+.admin-unified-section *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Unified Admin Section */
+.admin-unified-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.admin-section-header {
+  margin-bottom: 2rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+}
+
+.admin-tab.active {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+}
+
+.admin-tab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.admin-content-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Admin Section Titles */
+.admin-section-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* Admin Balance Cards */
+.admin-balance-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.admin-balance-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.admin-balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-balance-token {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-balance-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-balance-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.admin-balance-token span {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.admin-balance-amount {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Admin Withdraw Section */
+.admin-withdraw-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.admin-withdraw-form {
+  margin-bottom: 1.5rem;
+}
+
+.admin-token-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-amount-section {
+  flex: 1;
+}
+
+.admin-token-amount {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  outline: none;
+  letter-spacing: -0.025em;
+}
+
+.admin-token-amount:focus {
+  border-color: #3b82f6;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.admin-token-amount::placeholder {
+  color: #6b7280;
+}
+
+.admin-token-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  min-width: 140px;
+  transition: all 0.3s ease;
+}
+
+.admin-token-selector:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.admin-token-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-token-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.admin-token-symbol {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.admin-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.admin-usd-value {
+  font-family: 'Inter', sans-serif;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.admin-balance-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Orbitron', monospace;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.admin-withdraw-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-withdraw-btn,
+.admin-withdraw-all-btn {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+.admin-withdraw-all-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 
+    0 8px 32px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.admin-withdraw-btn:disabled,
+.admin-withdraw-all-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Admin Error Section */
+.admin-error-section {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.admin-error-content h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.admin-error-content p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.admin-error-icon {
+  margin-bottom: 1rem;
+}
+
+/* Token Modal Styles */
+.token-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.token-modal {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: scale(0.9) translateY(20px);
+  animation: modalSlideIn 0.3s ease forwards;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.token-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.token-modal-header h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.token-modal-header button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.token-modal-header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.token-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: slideInUp 0.3s ease forwards;
+}
+
+.token-option:nth-child(1) { animation-delay: 0.1s; }
+.token-option:nth-child(2) { animation-delay: 0.2s; }
+.token-option:nth-child(3) { animation-delay: 0.3s; }
+.token-option:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.token-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px) translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.token-option .token-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.token-option:hover .token-icon {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.token-option .token-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.token-option:hover .token-icon img {
+  transform: scale(1.05);
+}
+
+.token-info {
+  flex: 1;
+}
+
+.token-symbol {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.token-name {
+  font-family: 'Inter', sans-serif;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.token-balance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Orbitron', monospace;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-unified-section {
+    padding: 24px;
+    margin: 1rem;
+  }
+  
+  .admin-balance-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .admin-token-input {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .admin-token-selector {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .admin-withdraw-buttons {
+    gap: 0.5rem;
+  }
+  
+  .token-modal {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-unified-section {
+    padding: 16px;
+    margin: 0.5rem;
+  }
+  
+  .admin-balance-card {
+    padding: 16px;
+  }
+  
+  .admin-balance-amount {
+    font-size: 1.25rem;
+  }
+  
+  .admin-token-amount {
+    font-size: 1rem;
+    padding: 12px 16px;
+  }
+  
+  .admin-withdraw-btn,
+  .admin-withdraw-all-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Token Icon Styles */
+.balance-token-icon img,
+.token-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.balance-token-icon,
+.token-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.balance-token-icon:hover,
+.token-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Token Selector Hover Effects */
+.token-selector:hover .token-icon {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Balance Cards Hover Effects */
+.balance-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.balance-card:hover .balance-token-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Withdraw Buttons Styling */
+.withdraw-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.withdraw-buttons .swap-button {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.withdraw-buttons .swap-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.withdraw-buttons .swap-button:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Error State Styling */
+.token-input .error-state {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.token-input .error-state h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.token-input .error-state p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Additional Harmonious Styles */
+.balance-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.balance-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.token-selector {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.token-selector:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.token-selector:hover .token-icon {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Token Modal Enhancements */
+.token-modal .token-option {
+  transition: all 0.2s ease;
+}
+
+.token-modal .token-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.token-modal .token-option:hover .token-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Loading States */
+.balance-amount:empty::after {
+  content: 'Загрузка...';
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Focus States */
+.token-amount:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .balance-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .balance-card {
+    padding: 16px;
+  }
+  
+  .balance-token-icon,
+  .token-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .withdraw-buttons {
+    gap: 0.5rem;
+  }
+  
+  .withdraw-buttons .swap-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .balance-cards {
+    gap: 0.5rem;
+  }
+  
+  .balance-card {
+    padding: 12px;
+  }
+  
+  .balance-amount {
+    font-size: 1rem;
+  }
+  
+  .withdraw-buttons .swap-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}
+
+.balance-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.balance-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.balance-token {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.balance-token-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.balance-token span {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.balance-amount {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Withdraw Buttons */
+.withdraw-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background: #101010;
+  min-height: 100vh;
+  color: #ffffff;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.admin-panel {
+  min-height: 100vh;
+  background: #101010;
+}
+
+/* Header */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.admin-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-logo {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.025em;
+}
+
+.admin-logo-first {
+  color: #f8fafc;
+}
+
+.admin-logo-second {
+  color: #ef4444;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.admin-wallet-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-connect-wallet {
+  font-family: 'Orbitron', monospace;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.admin-connect-wallet:hover {
+  background: #2563eb;
+}
+
+.admin-wallet-connected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(16, 16, 16, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.admin-wallet-address {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  background: rgba(98, 126, 234, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(98, 126, 234, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.admin-wallet-address:hover {
+  background: rgba(98, 126, 234, 0.2);
+  border-color: rgba(98, 126, 234, 0.3);
+  box-shadow: 0 2px 8px rgba(98, 126, 234, 0.2);
+}
+
+/* Main Content */
+.admin-main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+
+.admin-container {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.admin-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.admin-title h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.admin-title p {
+  font-family: 'Inter', sans-serif;
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Balances Section */
+.admin-balances {
+  margin-bottom: 2rem;
+}
+
+.admin-balances h2 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.balance-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.balance-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.balance-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.balance-token {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.balance-token-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.balance-token span {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.balance-amount {
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Withdraw Section */
+.admin-withdraw {
+  margin-bottom: 2rem;
+}
+
+.admin-withdraw h2 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.withdraw-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.withdraw-token-selector,
+.withdraw-amount {
+  margin-bottom: 1.5rem;
+}
+
+.withdraw-token-selector label,
+.withdraw-amount label {
+  font-family: 'Orbitron', monospace;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  letter-spacing: -0.01em;
+}
+
+.token-select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-family: 'Orbitron', monospace;
+}
+
+.token-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.amount-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-family: 'Orbitron', monospace;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.amount-input::placeholder {
+  color: #6b7280;
+  font-family: 'Orbitron', monospace;
+}
+
+.withdraw-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.withdraw-btn,
+.withdraw-all-btn {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex: 1;
+  min-width: 150px;
+}
+
+.withdraw-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow: 
+    0 12px 40px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.withdraw-all-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 
+    0 8px 32px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.withdraw-all-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 
+    0 12px 40px rgba(239, 68, 68, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.withdraw-btn:disabled,
+.withdraw-all-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error State */
+.admin-error {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.error-icon {
+  margin-bottom: 1rem;
+  color: #ef4444;
+}
+
+.admin-error h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.admin-error p {
+  font-family: 'Inter', sans-serif;
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Toast Styles */
+.admin-toast-overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.admin-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(16, 16, 16, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  min-width: 320px;
+  max-width: 400px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.admin-toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.admin-toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.admin-toast-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-toast.error .admin-toast-icon {
+  color: #ef4444;
+}
+
+.admin-toast.success .admin-toast-icon {
+  color: #10b981;
+}
+
+.admin-toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-toast-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.admin-toast-message {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.admin-toast-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-toast-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .admin-wallet-section {
+    gap: 0.5rem;
+  }
+
+  .admin-main-content {
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+
+  .admin-container {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .balance-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .withdraw-buttons {
+    flex-direction: column;
+  }
+
+  .withdraw-btn,
+  .withdraw-all-btn {
+    flex: none;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-wallet-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-container {
+    padding: 16px;
+  }
+
+  .admin-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .balance-amount {
+    font-size: 1.25rem;
+  }
+}
