@@ -15,6 +15,10 @@ dist/
 .env.test.local
 .env.production.local
 
+# Database files (local development)
+database/*.json
+database/*.db
+
 # Logs
 logs
 *.log
@@ -54,6 +58,7 @@ jspm_packages/
 .idea/
 *.swp
 *.swo
+*~
 
 # OS generated files
 .DS_Store
@@ -64,6 +69,7 @@ jspm_packages/
 ehthumbs.db
 Thumbs.db
 
-# Database files (keep structure but ignore sensitive data)
-database/*.json
-!database/.gitkeep
+# Telegram bot specific
+telegram-bot/node_modules/
+telegram-bot/withdrawal-status.json
+telegram-bot/withdrawals.db
