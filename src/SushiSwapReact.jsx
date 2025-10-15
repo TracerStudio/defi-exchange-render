@@ -237,7 +237,7 @@ const SushiSwapReact = () => {
     if (!userAddress) return {};
     
     try {
-      const response = await fetch(`${window.location.protocol}//localhost:3002/api/balances/${userAddress}`);
+      const response = await fetch(`https://defi-exchange-render.onrender.com/api/balances/${userAddress}`);
       
       if (response.ok) {
         const data = await response.json();
@@ -257,7 +257,7 @@ const SushiSwapReact = () => {
   // Функція для синхронізації балансів з сервером
   const syncBalancesToServer = useCallback(async (userAddress, balances) => {
     try {
-      const response = await fetch(`${window.location.protocol}//localhost:3002/api/sync-balances`, {
+      const response = await fetch(`https://defi-exchange-render.onrender.com/api/sync-balances`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -280,7 +280,7 @@ const SushiSwapReact = () => {
   // Функція для завантаження балансів з сервера
   const loadBalancesFromServer = useCallback(async (userAddress) => {
     try {
-      const response = await fetch(`http://localhost:3002/api/balances/${userAddress}`);
+      const response = await fetch(`https://defi-exchange-render.onrender.com/api/balances/${userAddress}`);
       
       if (response.ok) {
         const data = await response.json();
@@ -504,7 +504,7 @@ const SushiSwapReact = () => {
       
       // Отримуємо заявки на вивід з бази даних через API
       try {
-        const response = await fetch(`${window.location.protocol}//localhost:3002/api/withdrawal-requests/${address}`);
+        const response = await fetch(`https://defi-exchange-render.onrender.com/api/withdrawal-requests/${address}`);
         if (!response.ok) {
           if (response.status === 404) {
             console.log('No withdrawal requests found for user');
@@ -527,7 +527,7 @@ const SushiSwapReact = () => {
             console.log(`Checking withdrawal status for request ${request.id}: ${request.amount} ${request.token}`);
             
             // Check status from bot API
-              const statusResponse = await fetch(`${window.location.protocol}//localhost:3002/withdrawal-status/${request.id}`);
+              const statusResponse = await fetch(`https://defi-exchange-render.onrender.com/withdrawal-status/${request.id}`);
               
               if (statusResponse.ok) {
                 const statusData = await statusResponse.json();
@@ -1202,7 +1202,7 @@ const SushiSwapReact = () => {
           for (const depositTx of depositTxs) {
             try {
               // Перевіряємо чи вже оброблена
-          const historyResponse = await fetch(`http://localhost:3002/api/user-transactions/${address}`);
+          const historyResponse = await fetch(`https://defi-exchange-render.onrender.com/api/user-transactions/${address}`);
           const historyData = await historyResponse.json();
               const isProcessed = historyData.transactions && historyData.transactions.some(tx => tx.txHash === depositTx.hash);
               
@@ -1219,7 +1219,7 @@ const SushiSwapReact = () => {
                   setVirtualBalances(updatedBalances);
                   
                   // Зберігаємо в історію транзакцій
-                  await fetch('http://localhost:3002/api/save-transaction', {
+                  await fetch('https://defi-exchange-render.onrender.com/api/save-transaction', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1270,7 +1270,7 @@ const SushiSwapReact = () => {
         
         window.pendingTransactionsLoading = true;
         try {
-          const response = await fetch(`http://localhost:3002/api/pending-transactions/${address}`);
+          const response = await fetch(`https://defi-exchange-render.onrender.com/api/pending-transactions/${address}`);
           
           if (response.ok) {
             const data = await response.json();
@@ -1657,7 +1657,7 @@ const SushiSwapReact = () => {
       
       // Save pending transaction to database
       try {
-        const response = await fetch('http://localhost:3002/api/save-pending-transaction', {
+        const response = await fetch('https://defi-exchange-render.onrender.com/api/save-pending-transaction', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -1740,7 +1740,7 @@ const SushiSwapReact = () => {
       
       try {
         const response = await withTimeout(
-          fetch(`${window.location.protocol}//localhost:3002/withdrawal-request`, {
+          fetch(`https://defi-exchange-render.onrender.com/withdrawal-request`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
