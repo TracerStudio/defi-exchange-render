@@ -7,8 +7,8 @@ WORKDIR /app
 # Копіюємо package.json та package-lock.json
 COPY package*.json ./
 
-# Встановлюємо залежності (включаючи dev dependencies для збірки)
-RUN npm ci
+# Встановлюємо залежності з legacy-peer-deps для вирішення конфліктів
+RUN npm ci --legacy-peer-deps
 
 # Копіюємо весь проект
 COPY . .

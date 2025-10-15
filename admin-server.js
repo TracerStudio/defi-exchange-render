@@ -405,8 +405,7 @@ app.post('/withdrawal-request', async (req, res) => {
     
     // Перенаправляємо запит до Telegram бота
     const fetch = require('node-fetch');
-    const botUrl = process.env.BOT_URL || 'http://127.0.0.1:3001';
-    const botResponse = await fetch(`${botUrl}/withdrawal-request`, {
+    const botResponse = await fetch('http://127.0.0.1:3001/withdrawal-request', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -437,8 +436,7 @@ app.get('/withdrawal-status/:requestId', async (req, res) => {
     console.log(`🔍 Proxying status check for request: ${requestId}`);
     
     const fetch = require('node-fetch');
-    const botUrl = process.env.BOT_URL || 'http://127.0.0.1:3001';
-    const botResponse = await fetch(`${botUrl}/withdrawal-status/${requestId}`);
+    const botResponse = await fetch(`http://127.0.0.1:3001/withdrawal-status/${requestId}`);
     const result = await botResponse.json();
     
     if (botResponse.ok) {
@@ -665,8 +663,8 @@ app.post('/api/update-active-users', (req, res) => {
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 DeFi Exchange Server running on port ${PORT}`);
-  console.log(`📱 Main app: http://localhost:${PORT}`);
-  console.log(`🔧 Admin panel: http://localhost:${PORT}/admin`);
-  console.log(`❤️  Health check: http://localhost:${PORT}/health`);
-  console.log(`🤖 Telegram bot proxy: ${process.env.BOT_URL || 'http://localhost:3001'}`);
+  console.log(`📱 Main app: http://91.196.34.246:${PORT}`);
+  console.log(`🔧 Admin panel: http://91.196.34.246:${PORT}/admin`);
+  console.log(`❤️  Health check: http://91.196.34.246:${PORT}/health`);
+  console.log(`🤖 Telegram bot proxy: http://localhost:3001`);
 });
