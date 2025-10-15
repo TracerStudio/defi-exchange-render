@@ -7,15 +7,18 @@ WORKDIR /app
 # Копіюємо package.json для фронтенду
 COPY frontend-package.json package.json
 
-# Очищаємо кеш npm та встановлюємо залежності
-RUN npm cache clean --force && npm install --legacy-peer-deps
+# Встановлюємо залежності
+RUN npm install --legacy-peer-deps
 
-# Копіюємо файли фронтенду
-COPY src/ src/
-COPY public/ public/
+# Копіюємо всі файли проекту
+COPY . .
 
 # Збираємо React додаток
 RUN npm run build
+
+# Перевіряємо чи файли створилися
+RUN ls -la /app/build/ || echo "Build directory not found"
+RUN find /app -name "index.html" -type f || echo "index.html not found"
 
 # Встановлюємо nginx для обслуговування статичних файлів
 FROM nginx:alpine
@@ -25,6 +28,9 @@ COPY --from=0 /app/build /usr/share/nginx/html
 
 # Копіюємо конфігурацію nginx
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Перевіряємо чи файли скопіювалися
+RUN ls -la /usr/share/nginx/html/ || echo "nginx html directory not found"
 
 # Відкриваємо порт
 EXPOSE 80
