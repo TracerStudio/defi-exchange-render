@@ -9,8 +9,8 @@ COPY package*.json ./
 COPY telegram-bot/package*.json ./telegram-bot/
 
 # Install dependencies
-RUN npm install
-RUN cd telegram-bot && npm install
+RUN npm install --legacy-peer-deps
+RUN cd telegram-bot && npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
@@ -28,8 +28,8 @@ COPY package*.json ./
 COPY telegram-bot/package*.json ./telegram-bot/
 
 # Install production dependencies
-RUN npm install --only=production
-RUN cd telegram-bot && npm install --only=production
+RUN npm install --only=production --legacy-peer-deps
+RUN cd telegram-bot && npm install --only=production --legacy-peer-deps
 
 # Copy built React app and server code
 COPY --from=build /app/build ./build
