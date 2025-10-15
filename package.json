@@ -6,13 +6,13 @@
   "scripts": {
     "start": "node admin-server.js",
     "dev": "react-scripts start --host 0.0.0.0",
-    "build": "react-scripts build",
+    "build": "echo 'No build needed for server'",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "admin": "node admin-server.js",
     "admin:dev": "npm run dev",
-    "heroku-postbuild": "npm run build",
-    "render-postbuild": "npm run build"
+    "heroku-postbuild": "echo 'No build needed for server'",
+    "render-postbuild": "echo 'No build needed for server'"
   },
   "dependencies": {
     "@reown/appkit": "^1.8.9",

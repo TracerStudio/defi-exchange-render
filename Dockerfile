@@ -16,11 +16,8 @@ COPY . .
 # Створюємо директорію для бази даних
 RUN mkdir -p database
 
-# Збираємо React додаток
-RUN npm run build
-
-# Видаляємо dev dependencies після збірки
-RUN npm prune --production
+# Сервер не потребує збірки React
+RUN echo "Server ready - no build needed"
 
 # Відкриваємо порт
 EXPOSE 3000
