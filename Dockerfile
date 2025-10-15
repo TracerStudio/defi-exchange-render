@@ -4,11 +4,11 @@ FROM node:18-alpine
 # Встановлюємо робочу директорію
 WORKDIR /app
 
-# Копіюємо package.json та package-lock.json
-COPY package*.json ./
+# Копіюємо package.json
+COPY package.json ./
 
 # Встановлюємо залежності з legacy-peer-deps для вирішення конфліктів
-RUN npm ci --legacy-peer-deps
+RUN npm install --legacy-peer-deps
 
 # Копіюємо весь проект
 COPY . .
