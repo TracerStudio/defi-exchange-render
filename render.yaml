@@ -1,0 +1,52 @@
+services:
+  # Основний API сервер (Express)
+  - type: web
+    name: defi-exchange-api
+    env: node
+    plan: free
+    buildCommand: npm ci --legacy-peer-deps
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: BOT_URL
+        value: https://defi-bot.onrender.com
+    healthCheckPath: /health
+    autoDeploy: true
+    branch: master
+    dockerfilePath: ./Dockerfile
+
+  # React фронтенд
+  - type: web
+    name: defi-exchange-frontend
+    env: docker
+    plan: free
+    dockerfilePath: ./frontend-Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true
+    branch: master
+
+  # Telegram бот як окремий сервіс
+  - type: web
+    name: defi-bot
+    env: node
+    plan: free
+    buildCommand: cd telegram-bot && npm ci
+    startCommand: cd telegram-bot && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false  # Буде встановлено вручну
+      - key: ADMIN_CHAT_ID
+        sync: false  # Буде встановлено вручну
+    healthCheckPath: /health
+    autoDeploy: true
+    branch: master
